@@ -41,9 +41,12 @@ step4:write below commands in order to push data from local to github
           CMD ["uvicorn", "router.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 
-# Go to Back4APP site for app deployment in container form
+# Go to Back4APP site for app deployment in container format
 
 --->Back4App:https://containers.back4app.com/apps/5b327ce9-8f85-49ca-9026-30b99113ba9b
+    
+    #inside Back4App select New APP and proceed with below steps
+      [New APP===>Container as a service(beta)===>select a Git repository===>select a particular code repository]
 
 
 
