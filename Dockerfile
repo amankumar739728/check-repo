@@ -70,7 +70,7 @@
 #@App2
 #---------uncomment the below code for app2-------#
 
-# Changed the base image to python:3.10.5-slim since the original base image was not found
+# Changed the base image to python:3.9-slim since the original base image was not found
 FROM python:3.9-slim
 RUN python -m pip install --upgrade pip
 
@@ -87,8 +87,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Expose port 9000 to allow external access
-EXPOSE 9000
+# Expose port 8000 to allow external access
+EXPOSE 8000
 
 # Start the Uvicorn server
-CMD ["uvicorn", "router.app1:app", "--host", "0.0.0.0", "--port", "9000"]
+CMD ["uvicorn", "router.app1:app", "--host", "0.0.0.0", "--port", "8000"]
