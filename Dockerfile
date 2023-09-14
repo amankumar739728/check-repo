@@ -7,8 +7,11 @@
 FROM python:3.9-slim
 RUN python -m pip install --upgrade pip
 
+# # Set the working directory to /app
+# WORKDIR /app
+
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /app1
 
 # Copy the requirements.txt file to the working directory
 COPY requirements.txt .
@@ -23,4 +26,6 @@ COPY . .
 EXPOSE 8000
 
 # Start the Uvicorn server
-CMD ["uvicorn", "router.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["uvicorn", "router.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+CMD ["uvicorn", "router.app:app", "--host", "0.0.0.0", "--port", "8000"]
