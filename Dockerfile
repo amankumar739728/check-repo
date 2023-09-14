@@ -5,6 +5,7 @@
 
 # Changed the base image to python:3.10.5-slim since the original base image was not found
 FROM python:3.10.5-slim
+RUN python -m pip install --upgrade pip
 
 # Set the working directory to /app
 WORKDIR /app
