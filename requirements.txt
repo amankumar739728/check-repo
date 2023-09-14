@@ -1,5 +1,5 @@
 anyio==3.5.0
-asgiref==3.7.2
+asgiref==3.5.0
 aspose-words==23.8.0
 async-generator==1.10
 attrs==22.1.0
@@ -56,7 +56,7 @@ pycparser==2.21
 pydantic==1.9.0
 Pygments==2.15.0
 PyJWT==2.3.0
-pymongo==3.13.0
+pymongo==4.5.0
 pypandoc==1.11
 PySocks==1.7.1
 python-dateutil==2.8.2
