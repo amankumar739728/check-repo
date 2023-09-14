@@ -4,7 +4,7 @@
 #If you are developing or deploying applications, I highly recommend using Dockerfiles.
 
 # Changed the base image to python:3.10.5-slim since the original base image was not found
-FROM python:3.10.5-slim
+FROM python:3.9-slim
 RUN python -m pip install --upgrade pip
 
 # Set the working directory to /app

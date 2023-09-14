@@ -32,7 +32,7 @@ step4:write below commands in order to push data from local to github
 -->Next, create a Dockerfile in your project root folder. You can do this by creating a new file in VS Code and      naming it Dockerfile.
 -->Once created, type the following commands to build a Docker image(inside docker file):
           
-          FROM python:3.10.5-slim
+          FROM python:3.9-slim
           WORKDIR /app
           COPY requirements.txt .
           RUN pip install --no-cache-dir -r requirements.txt
