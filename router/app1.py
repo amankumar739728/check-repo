@@ -50,7 +50,13 @@ def send_password_reset_email(email, token):
         server.login(sender_email, sender_password)
         server.send_message(msg)
 
-@app.get("/")
+@app.get("/", include_in_schema=False)  # Set include_in_schema=False to hide it in docs
+async def redirect_to_form():
+    response = RedirectResponse(url='/login')
+    return response
+
+
+@app.get("/logged-in")
 async def read_root(request: Request, username: str = Cookie(default=None)):
     if username:
         return templates.TemplateResponse("index.html", {"request": request, "username": username})
@@ -70,7 +76,7 @@ async def login_post(username: str = Form(...), password: str = Form(...)):
     user = collection.find_one({"username": username})
     
     if user and user["password"] == password:
-        response = RedirectResponse(url="/", status_code=303)
+        response = RedirectResponse(url="/logged-in", status_code=303)
         response.set_cookie(key="username", value=username)
         return response
     else:
