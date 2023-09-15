@@ -21,6 +21,7 @@ step4:write below commands in order to push data from local to github
       (myenv2) D:\fastapi-project>git commit -m "first commit"
       (myenv2) D:\fastapi-project>git branch -M main
       (myenv2) D:\fastapi-project>git remote add origin https://github.com/amankumar739728/check-repo.git
+      (myenv2) D:\fastapi-project\router>git pull origin main
       (myenv2) D:\fastapi-project>git push -u origin main
 
 # why we create Docker file:
