@@ -87,6 +87,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . .
 
+# Create a templates directory in the container and copy the contents
+RUN mkdir templates
+COPY templates /app2/templates
+
 # Expose port 8000 to allow external access
 EXPOSE 8000
 
