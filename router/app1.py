@@ -25,7 +25,7 @@ sender_email = "amanpain000@gmail.com"
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="../templates")
 
 
 client = pymongo.MongoClient("mongodb+srv://aman123:Legion%40123@cluster0.yrmlxqc.mongodb.net/Aman?retryWrites=true&w=majority")  # Your MongoDB connection string
