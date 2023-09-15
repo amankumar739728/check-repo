@@ -9,7 +9,6 @@ beanie==1.10.4
 beautifulsoup4==4.12.2
 bokeh==3.0.3
 bs4==0.0.1
-bson==0.5.10
 certifi==2022.9.24
 cffi==1.15.0
 charset-normalizer==2.1.1
