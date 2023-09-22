@@ -64,19 +64,12 @@ async def create_resume(request: Request,
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail="Invalid work history JSON")
 
-    # Set the value of 'client' to be the same as 'company' if it's missing
-    for entry in work_history_data:
-        if "client" not in entry:
-            entry["client"] = entry.get("company", "")  # Set 'client' to 'company' if 'client' is missing
-        entry["role"] = entry.get("role", "")
-        entry["duration"] = entry.get("duration", "")  # Set a default value if 'duration' is missing
-        entry["responsibilities"] = entry.get("responsibilities", [])
-
     # Inside the loop that processes work history
     for entry in work_history_data:
-        entry["client"] = entry.get("client", entry.get("company", ""))
-        #entry["client"] = entry.get("client", entry["company"])
+        if isinstance(entry, dict):
+            entry["client"] = entry.get("client", entry.get("company", ""))
         entry["role"] = entry.get("role", "")
+        entry["duration"] = entry.get("duration", "")  
         entry["responsibilities"] = entry.get("responsibilities", [])
 
     # Process the professional_summary to create bullet points
