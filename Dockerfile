@@ -40,27 +40,27 @@
 
 
 # Changed the base image to python:3.10.5-slim since the original base image was not found
-FROM python:3.9-slim
-RUN python -m pip install --upgrade pip
+# FROM python:3.9-slim
+# RUN python -m pip install --upgrade pip
 
-# Set the working directory to /app1
-WORKDIR /app1
+# # Set the working directory to /app1
+# WORKDIR /app1
 
 
-# Copy the requirements.txt file to the working directory
-COPY requirements.txt .
+# # Copy the requirements.txt file to the working directory
+# COPY requirements.txt .
 
-# Install the packages listed in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# # Install the packages listed in requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container at /app
-COPY . .
+# # Copy the current directory contents into the container at /app
+# COPY . .
 
-# Expose port 8000 to allow external access
-EXPOSE 8000
+# # Expose port 8000 to allow external access
+# EXPOSE 8000
 
-# Start the Uvicorn server
-CMD ["uvicorn", "router.app:app", "--host", "0.0.0.0", "--port", "8000"]
+# # Start the Uvicorn server
+# CMD ["uvicorn", "router.app:app", "--host", "0.0.0.0", "--port", "8000"]
 
 
 
@@ -98,3 +98,40 @@ CMD ["uvicorn", "router.app:app", "--host", "0.0.0.0", "--port", "8000"]
 
 # # Start the Uvicorn server
 # CMD ["uvicorn", "router.app1:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+
+
+
+# ------------------------------------------------------------------------------------------------------- #
+
+#@App3(app2.py)
+
+#---------uncomment the below code for app2-------#
+
+# Changed the base image to python:3.9-slim since the original base image was not found
+
+FROM python:3.9-slim
+RUN python -m pip install --upgrade pip
+
+# Set the working directory to /app2
+WORKDIR /app3
+
+
+# Copy the requirements.txt file to the working directory
+COPY requirements.txt .
+
+# Install the packages listed in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the current directory contents into the container at /app
+COPY . .
+
+# Create a templates directory in the container and copy the contents
+COPY templates /app3/templates
+
+# Expose port 8000 to allow external access
+EXPOSE 8000
+
+# Start the Uvicorn server
+CMD ["uvicorn", "router.app2:app", "--host", "0.0.0.0", "--port", "8000"]
