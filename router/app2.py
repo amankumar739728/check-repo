@@ -67,7 +67,10 @@ async def create_resume(request: Request,
     # Set the value of 'client' to be the same as 'company' if it's missing
     for entry in work_history_data:
         if "client" not in entry:
-            entry["client"] = entry["company"]
+            entry["client"] = entry.get("company", "")  # Set 'client' to 'company' if 'client' is missing
+        entry["role"] = entry.get("role", "")
+        entry["duration"] = entry.get("duration", "")  # Set a default value if 'duration' is missing
+        entry["responsibilities"] = entry.get("responsibilities", [])
 
     # Inside the loop that processes work history
     for entry in work_history_data:
