@@ -71,7 +71,8 @@ async def create_resume(request: Request,
 
     # Inside the loop that processes work history
     for entry in work_history_data:
-        entry["client"] = entry.get("client", entry["company"])
+        entry["client"] = entry.get("client", entry.get("company", ""))
+        #entry["client"] = entry.get("client", entry["company"])
         entry["role"] = entry.get("role", "")
         entry["responsibilities"] = entry.get("responsibilities", [])
 
