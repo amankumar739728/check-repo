@@ -57,7 +57,7 @@ async def create_resume(request: Request,
                         full_name: str = Form(...),
                         company_logo: UploadFile = File(...),
                         designation: str = Form(...)):
-
+    print("Received work_history:", work_history)
     # Deserialize the JSON data from the work_history field
     try:
         work_history_data = json.loads(work_history)
@@ -71,7 +71,6 @@ async def create_resume(request: Request,
         entry["role"] = entry.get("role", "")
         entry["duration"] = entry.get("duration", "")  
         entry["responsibilities"] = entry.get("responsibilities", [])
-
     # Process the professional_summary to create bullet points
     professional_summary_bullets = professional_summary.split('\n')
     technical_skills_bullets = technical_skills.split('\n')
