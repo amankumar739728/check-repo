@@ -74,6 +74,8 @@ async def create_resume(request: Request,
         entry["client"] = entry.get("client", entry["company"])
         entry["role"] = entry.get("role", "")
         entry["responsibilities"] = entry.get("responsibilities", [])
+        # Update this line to use .get() for 'duration'
+        entry["duration"] = entry.get('duration', entry['duration'])
 
     # Process the professional_summary to create bullet points
     professional_summary_bullets = professional_summary.split('\n')
